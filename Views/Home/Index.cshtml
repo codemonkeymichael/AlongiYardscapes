@@ -4,15 +4,15 @@
     ViewData["Title"] = "Home Page";
 }
 
+<div class="homeSliderVerbiage">
+    Specializing in the design, implementation and maintenance of outdoor spaces. Our work is crafted with quality, detail and service to deliver long lived, functional and beautiful results.
+</div>
+
 <div class="homeSlider">
     @foreach (var img in Model.Images)
     {
         <img class="home-slide-show" src="@img" />
     }
-
-</div>
-<div class="homeSliderVerbiage">
-    Specializing in the design, implementation and maintenance of outdoor spaces. Our work is crafted with quality, detail and service to deliver long lived, functional and beautiful results.
 </div>
 
 @section Scripts{
