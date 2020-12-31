@@ -1,8 +1,23 @@
-﻿@{
+﻿@model alongiYardscapes.Models.SlideShow
+
+@{
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="homeSlider">
+    @foreach (var img in Model.Images)
+    {
+        <img class="home-slide-show" src="@img" />
+    }
+
 </div>
+<div class="homeSliderVerbiage">
+    Specializing in the design, implementation and maintenance of outdoor spaces. Our work is crafted with quality, detail and service to deliver long lived, functional and beautiful results.
+</div>
+
+
+<script type="text/javascript">
+    $(function () {
+        AY.SlideShow.Init();
+    });
+</script>
