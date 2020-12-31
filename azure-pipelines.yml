@@ -1,0 +1,82 @@
+# ASP.NET Core
+# Build and test ASP.NET Core projects targeting .NET Core.
+# Add steps that run tests, create a NuGet package, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
+
+trigger:
+    batch: true
+    branches:
+        include:
+            - master
+        exclude:
+            - feature/*
+
+pool:
+  vmImage: 'windows-latest'
+
+
+variables:
+  solution: '**/*.sln'
+  buildPlatform: 'Any CPU'
+  buildConfiguration: 'Release'
+  disable.coverage.autogenerate: true
+
+steps:
+
+- task: NuGetToolInstaller@1
+    
+- task: NuGetCommand@2
+  displayName: 'NuGet Restore'
+  inputs:
+    command: 'restore'
+    restoreSolution: '$(solution)'
+
+
+- task: UseDotNet@2
+  displayName: 'Install DotNet Core'
+  inputs:
+    packageType: 'sdk'
+    version: '5.0.x'
+
+- task: VSBuild@1
+  displayName: 'MSBuild Solution'
+  inputs:
+    solution: '$(solution)'
+    msbuildArgs: '/p:DeployOnBuild=false /p:DeployDefaultTarget=WebPublish /p:WebPublishMethod=FileSystem /p:publishUrl="$(Build.ArtifactStagingDirectory)" /property:langversion=latest'
+    platform: '$(buildPlatform)'
+    configuration: '$(buildConfiguration)'    
+
+- task: NodeTool@0
+  displayName: 'Use Node Version 13.0.x'
+  inputs:
+    versionSpec: 13.0.x
+
+- task: Npm@0
+  displayName: 'NPM Install'
+
+- task: Npm@1
+  displayName: 'Gulp Install'
+  inputs:
+    command: custom
+    verbose: false
+    customCommand: 'install -g gulp-cli'
+
+- task: Gulp@1
+  displayName: 'Gulp Run'
+  inputs:
+    workingDirectory: '$(Build.SourcesDirectory)'
+
+- task: DotNetCoreCLI@2
+  displayName: 'Publish Web'
+  inputs:
+    command: 'publish'
+    publishWebProjects: false
+    projects: '$(Build.SourcesDirectory)/**/*GoodfellasBarberShop.csproj'
+    arguments: '--configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)'
+
+- task: PublishBuildArtifacts@1
+  displayName: 'Publish Artifacts'
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: 'drop'
+    publishLocation: 'Container'
