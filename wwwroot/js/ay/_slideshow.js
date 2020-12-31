@@ -20,7 +20,5 @@
             $(".home-slide-show:nth-child(" + lastSlide + ")").fadeOut(AY.SlideShow.slideFadeTime);
         });
         setTimeout("AY.SlideShow.Step()", AY.SlideShow.sildeTimer);
-    
     }
-
 }
