@@ -40,12 +40,6 @@ namespace alongiYardscapes.Controllers
                 ss.Images.Add($"/images/HomeSlideShow/{id}.{fileNameArray[1]}.jpg"); 
             }
             return View(ss);
-        }
-
-        public IActionResult Privacy()
-        {
-            return View();
-        }     
-   
+        }       
     }
 }
