@@ -1,8 +1,14 @@
-﻿@{
+﻿@model alongiYardscapes.Models.GalleryImages
+
+@{
     ViewData["Title"] = "Gallery";
 }
 
 <h1>Gallery</h1>
+@foreach (var img in Model.Images)
+{
+    <img class="" src="@img.Thumb" />
+}
 
 
 @section Scripts{
