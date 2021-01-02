@@ -71,7 +71,7 @@ steps:
   inputs:
     command: 'publish'
     publishWebProjects: false
-    projects: '$(Build.SourcesDirectory)/**/*GoodfellasBarberShop.csproj'
+    projects: '$(Build.SourcesDirectory)/**/*alongiYardscapes.csproj'
     arguments: '--configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)'
 
 - task: PublishBuildArtifacts@1
