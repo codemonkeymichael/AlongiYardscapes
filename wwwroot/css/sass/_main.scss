@@ -1,16 +1,19 @@
-﻿body{
+﻿body {
     margin: 0;
 
-    main{
-        position:relative;
+    main {
+        position: relative;
     }
 
-    h3{
+    h2 {
+        font-size: 1.8rem;
+    }
+
+    h3 {
         font-style: italic;
         font-weight: bold;
-        font-size:25px;
-        clear:both;
+        font-size: 25px;
+        clear: both;
         text-align: center;
-    
     }
 }

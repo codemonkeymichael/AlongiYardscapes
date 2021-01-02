@@ -10,11 +10,11 @@ using System.Threading.Tasks;
 
 namespace alongiYardscapes.Controllers
 {
-    public class AboutController : Controller
+    public class ServicesController : Controller
     {
-        private readonly ILogger<AboutController> _logger;
+        private readonly ILogger<ServicesController> _logger;
 
-        public AboutController(ILogger<AboutController> logger)
+        public ServicesController(ILogger<ServicesController> logger)
         {
             _logger = logger;
         }
