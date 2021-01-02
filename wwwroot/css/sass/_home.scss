@@ -8,6 +8,20 @@
     color: #393939;
 }
 
+@media (min-width: 768px) {
+    .homeSliderVerbiage {
+        position: absolute;
+        margin: 25px;
+        padding: 25px;
+        z-index: 1;
+        background: linear-gradient(#00000080, #000000, #0000000a);
+        width: 50%;
+        font-size: 20px;
+        font-weight: bold;
+        color: white;
+    }
+}
+
 @media (min-width: 992px) {
     .homeSliderVerbiage {
         position: absolute;
