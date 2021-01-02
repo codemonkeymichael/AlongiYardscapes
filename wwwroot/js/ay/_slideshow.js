@@ -17,7 +17,9 @@
             AY.SlideShow.slidePosition = lastSlide - 1;
         }
         $(".home-slide-show:nth-child(" + AY.SlideShow.slidePosition + ")").fadeIn(AY.SlideShow.slideFadeTime, function () {
-            $(".home-slide-show:nth-child(" + lastSlide + ")").fadeOut(AY.SlideShow.slideFadeTime);
+            if (lastSlide != 1) {
+                $(".home-slide-show:nth-child(" + lastSlide + ")").fadeOut(AY.SlideShow.slideFadeTime);
+            }
         });
         setTimeout("AY.SlideShow.Step()", AY.SlideShow.sildeTimer);
     }
