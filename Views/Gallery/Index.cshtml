@@ -5,14 +5,14 @@
 }
 
 <h1>Gallery</h1>
-@foreach (var img in Model.Images)
-{
-    <div class="slider">
+<div class="slider">
+    @foreach (var img in Model.Images)
+    {
         <div>
-            <img class="" src="@img.Thumb" />
+            <img class="slider-image" src="@img.Thumb" />
         </div>
-    </div>
-}
+    }
+</div>
 
 
 
@@ -20,6 +20,7 @@
 @section Scripts{
     <script type="text/javascript">
         $(function () {
+            AY.Gallery.Init();
         });
     </script>
 }
