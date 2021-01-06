@@ -7,8 +7,14 @@
 <h1>Gallery</h1>
 @foreach (var img in Model.Images)
 {
-    <img class="" src="@img.Thumb" />
+    <div class="slider">
+        <div>
+            <img class="" src="@img.Thumb" />
+        </div>
+    </div>
 }
+
+
 
 
 @section Scripts{
