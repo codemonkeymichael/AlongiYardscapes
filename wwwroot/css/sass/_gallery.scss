@@ -1,0 +1,28 @@
+﻿.image-viewer {
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+    height: 60vh;
+
+
+    .full-image {
+        display: none;
+        object-fit: contain;
+        max-height: 55vh;
+        max-width:100vw;
+    }
+
+    .selected {
+        display: block;
+    }
+}
+
+.slider {
+    height: 20vh;
+
+    .slider-image {
+        padding: 5px;
+        border: 2px solid gray;
+        max-height: 125px;
+    }
+}

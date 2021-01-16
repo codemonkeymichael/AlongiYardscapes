@@ -5,6 +5,26 @@
 }
 
 <h1>Gallery</h1>
+<div class="image-viewer">
+    @{bool first = true; }
+    @foreach (var img in Model.Images)
+    {
+        @if (first)
+        {
+            <div>
+                <img class="full-image selected" src="@img.Image" />
+            </div>
+        }
+        else
+        {
+            <div>
+                <img class="full-image" src="@img.Image" />
+            </div>
+        }
+        first = false; 
+    }
+</div>
+
 <div class="slider">
     @foreach (var img in Model.Images)
     {
