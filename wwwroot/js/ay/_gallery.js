@@ -1,6 +1,6 @@
 ﻿AY.Gallery = {
     Init: function () {
-        //$(".beforeAndAfter").twentytwenty();
+        $(".beforeAndAfter").twentytwenty();
 
         $(".slider-image").on("click", function () {
             AY.Gallery.changeImage($(this))
