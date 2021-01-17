@@ -1,6 +1,6 @@
 ﻿AY.Gallery = {
     Init: function () {
-        $('.slider-image').on('click', function () {
+        $(".slider-image").on("click", function () {
             AY.Gallery.changeImage($(this))
         });
 
@@ -39,7 +39,9 @@
     },
 
     changeImage: function (element) {
+        $(".full-image").removeClass("selected");
         var imgNum = element.attr("data-imgNum");
+        $(".full-image[data-imgNum='" + imgNum + "']").addClass("selected");
         console.log("Hello " + imgNum);
     }
 }
