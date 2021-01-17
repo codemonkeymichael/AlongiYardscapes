@@ -4,6 +4,7 @@ using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
@@ -30,7 +31,11 @@ namespace alongiYardscapes.Controllers
             {
                 var gi = new GalleryImage(); 
                 int startOfFolderNumber = folder.FullName.LastIndexOf("\\") + 1;
-                string folderNumber = folder.FullName.Substring(startOfFolderNumber, 2);               
+                string folderNumber = folder.FullName.Substring(startOfFolderNumber, 2);
+                var files = folder.GetFiles();
+                var img = System.Drawing.Image.FromFile(files[0].FullName);
+                gi.Portrait = false;
+                if (img.Height > img.Width) gi.Portrait = true;
                 int fCount = folder.GetFiles().Length;
                 gi.Id = folderNumber;
                 gi.Thumb = $"/images/Gallery/{folderNumber}/thumb.jpg";

@@ -6,79 +6,47 @@
 
 <h1>Gallery</h1>
 <div class="image-viewer">
-
-
-
     @{bool first = true; }
-        @foreach (var img in Model.Images)
+    @foreach (var img in Model.Images)
+    {
+        @if (img.BeforeAndAfter)
         {
-            @if (first)
-            {
-                @if (img.BeforeAndAfter)
-                {
-                    <div class="image-wrapper selected" data-imgNum="@img.Id">
-                        <div class="beforeAndAfter">
-                            <img class="full-image" src="@img.Image" />
-                            <img class="full-image" src="@img.ImageAfter" />
-                        </div>
-                    </div>
-                }
-                else
-                {
-                    <div class="image-wrapper selected" data-imgNum="@img.Id">
-                        <img class="full-image" src="@img.Image" />
-                    </div>
-                }
-            }
-            else
-            {
-                @if (img.BeforeAndAfter)
-                {
-                    <div class="image-wrapper" data-imgNum="@img.Id">
-                        <div class="beforeAndAfter">
-                            <img class="full-image" data-imgNum="@img.Id" src="@img.Image" />
-                            <img class="full-image" data-imgNum="@img.Id" src="@img.ImageAfter" />
-                        </div>
-                    </div>
-                }
-                else
-                {
-                    <div class="image-wrapper" data-imgNum="@img.Id">
-                        <img class="full-image" src="@img.Image" />
-                    </div>
-                }
-            }
-            first = false;
+            <div class="image-wrapper @(first ? "selected" : "") @(img.Portrait ? "portrait" : "landscape")" data-imgNum="@img.Id">
+                <div class="beforeAndAfter">
+                    <img class="full-image" src="@img.Image" />
+                    <img class="full-image" src="@img.ImageAfter" />
+                </div>
+            </div>
         }
+        else
+        {
+            <div class="image-wrapper @(first ? "selected" : "") @(img.Portrait ? "portrait" : "landscape")" data-imgNum="@img.Id">
+                <img class="full-image" src="@img.Image" />
+            </div>
+        }
+
+        first = false;
+    }
 </div>
 
-    <div class="slider">
-        @{first = true; }
-            @foreach (var img in Model.Images)
-            {
-                @if (first)
-                {
-                    <div>
-                        <img class="slider-image selected" data-imgNum="@img.Id" src="@img.Thumb" />
-                    </div>
-                }
-                else
-                {
-                    <div>
-                        <img class="slider-image" data-imgNum="@img.Id" src="@img.Thumb" />
-                    </div>
-                }
-                first = false;
-            }
-    </div>
-
-
-
-
-    @section Scripts{
-        <script type="text/javascript">
-            $(function () {
-                AY.Gallery.Init();
-            });
-        </script>
+<div class="slider">
+    @{first = true; }
+    @foreach (var img in Model.Images)
+    {
+        <div>
+            <img class="slider-image @(first ? "selected" : "")" data-imgNum="@img.Id" src="@img.Thumb" />
+        </div>
+        first = false;
     }
+</div>
+
+
+
+
+@section Scripts{
+    <script type="text/javascript">
+        $(function () {
+            AY.Gallery.Init();
+        });
+    </script>
+}

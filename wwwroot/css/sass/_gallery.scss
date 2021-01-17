@@ -1,9 +1,16 @@
 ﻿.image-viewer {
-    margin: auto;
-    width: 50%;
     padding: 10px;
     height: 60vh;
 
+    .portrait { 
+        margin: auto;
+        width: 50%;
+    }
+
+    .landscape {
+        margin: auto;
+        width: 85%;
+    }
 
     .full-image {
         /* object-fit: contain;*/

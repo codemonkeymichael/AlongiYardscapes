@@ -9,6 +9,7 @@ namespace alongiYardscapes.Models
         public string Image { get; set; }
         public string ImageAfter { get; set; }
         public bool BeforeAndAfter { get; set; }
+        public bool Portrait { get; set; }        
         public string Thumb { get; set; }
     }
 
