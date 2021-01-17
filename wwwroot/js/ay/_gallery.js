@@ -1,5 +1,7 @@
 ﻿AY.Gallery = {
     Init: function () {
+        //$(".beforeAndAfter").twentytwenty();
+
         $(".slider-image").on("click", function () {
             AY.Gallery.changeImage($(this))
         });
@@ -39,9 +41,9 @@
     },
 
     changeImage: function (element) {
-        $(".full-image").removeClass("selected");
+        $(".image-wrapper").removeClass("selected");
         var imgNum = element.attr("data-imgNum");
-        $(".full-image[data-imgNum='" + imgNum + "']").addClass("selected");
+        $(".image-wrapper[data-imgNum='" + imgNum + "']").addClass("selected");
         console.log("Hello " + imgNum);
     }
 }

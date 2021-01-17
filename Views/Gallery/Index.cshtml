@@ -13,15 +13,15 @@
         {
             @if (img.BeforeAndAfter)
             {
-                <div>
-                    <img class="full-image selected" data-imgNum="@img.Id" src="@img.Image" />
-                    <img class="full-image selected" data-imgNum="@img.Id" src="@img.ImageAfter" />
+                <div class="image-wrapper selected beforeAndAfter">
+                    <img class="full-image selected" src="@img.Image" />
+                    <img class="full-image selected" src="@img.ImageAfter" />
                 </div>
             }
             else
             {
-                <div>
-                    <img class="full-image selected" data-imgNum="@img.Id" src="@img.Image" />
+                <div class="image-wrapper selected" data-imgNum="@img.Id">
+                    <img class="full-image" src="@img.Image" />
                 </div>
             }
         }
@@ -29,15 +29,15 @@
         {
             @if (img.BeforeAndAfter)
             {
-                <div>
-                    <img class="full-image selected" data-imgNum="@img.Id" src="@img.Image" />
-                    <img class="full-image selected" data-imgNum="@img.Id" src="@img.ImageAfter" />
+                <div class="image-wrapper beforeAndAfter" data-imgNum="@img.Id">
+                    <img class="full-image" src="@img.Image" />
+                    <img class="full-image" src="@img.ImageAfter" />
                 </div>
             }
             else
             {
-                <div>
-                    <img class="full-image selected" data-imgNum="@img.Id" src="@img.Image" />
+                <div class="image-wrapper" data-imgNum="@img.Id">
+                    <img class="full-image" src="@img.Image" />
                 </div>
             }
         }

@@ -6,10 +6,13 @@
 
 
     .full-image {
-        display: none;
         object-fit: contain;
         max-height: 55vh;
-        max-width:100vw;
+        max-width: 100vw;
+    }
+
+    div {
+        display: none;
     }
 
     .selected {
