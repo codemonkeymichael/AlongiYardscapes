@@ -41,8 +41,11 @@
 
     changeImage: function (element) {
         $(".image-wrapper").removeClass("selected");
+        $(".slider-image").removeClass("selected");
         var imgNum = element.attr("data-imgNum");
         $(".image-wrapper[data-imgNum='" + imgNum + "']").addClass("selected");
+        element.addClass("selected");
+
         $(".beforeAndAfter").twentytwenty();
     }
 }

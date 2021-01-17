@@ -1,15 +1,19 @@
-﻿.image-viewer {
-    padding: 10px;
-    height: 60vh;
+﻿img:focus, div:focus {
+    outline: none;
+}
 
-    .portrait { 
+.image-viewer {
+    padding: 10px;
+    height: 70vh;
+
+    .portrait {
         margin: auto;
-        width: 50%;
+        width: 60%;
     }
 
     .landscape {
         margin: auto;
-        width: 85%;
+        width: 100%;
     }
 
     .full-image {
@@ -28,15 +32,19 @@
 }
 
 .slider {
-    height: 20vh;
+    height: 10vh;
 
     .slider-image {
         padding: 5px;
-        border: 2px solid gray;
+        //border: 2px solid gray;
         max-height: 125px;
     }
 
     .selected {
-        background-color: purple;
+        background-color: gray;
+    }
+
+    .slick-dots li button:before {
+        color: #fff;
     }
 }
