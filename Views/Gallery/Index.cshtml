@@ -6,31 +6,33 @@
 
 <h1>Gallery</h1>
 <div class="image-viewer">
-    @{bool first = true; }
+    @{int i = 1; }
     @foreach (var img in Model.Images)
     {
-        @if (first)
+        @if (i == 1)
         {
             <div>
-                <img class="full-image selected" src="@img.Image" />
+                <img class="full-image selected" data-imgNum="@i" src="@img.Image" />
             </div>
         }
         else
         {
             <div>
-                <img class="full-image" src="@img.Image" />
+                <img class="full-image" data-imgNum="@i" src="@img.Image" />
             </div>
         }
-        first = false; 
+        i++;
     }
 </div>
 
 <div class="slider">
+    @{ i = 1; }
     @foreach (var img in Model.Images)
     {
         <div>
-            <img class="slider-image" src="@img.Thumb" />
+            <img class="slider-image" data-imgNum="@i" src="@img.Thumb" />
         </div>
+        i++;
     }
 </div>
 

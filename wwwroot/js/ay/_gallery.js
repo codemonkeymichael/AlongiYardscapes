@@ -1,5 +1,9 @@
 ﻿AY.Gallery = {
     Init: function () {
+        $('.slider-image').on('click', function () {
+            AY.Gallery.changeImage($(this))
+        });
+
         $(".slider").slick({
             dots: true,
             infinite: false,
@@ -32,5 +36,10 @@
                 }             
             ]
         });
+    },
+
+    changeImage: function (element) {
+        var imgNum = element.attr("data-imgNum");
+        console.log("Hello " + imgNum);
     }
 }
