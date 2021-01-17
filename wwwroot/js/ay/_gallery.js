@@ -44,6 +44,5 @@
         var imgNum = element.attr("data-imgNum");
         $(".image-wrapper[data-imgNum='" + imgNum + "']").addClass("selected");
         $(".beforeAndAfter").twentytwenty();
-        console.log("Hello " + imgNum);
     }
 }

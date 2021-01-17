@@ -28,16 +28,7 @@ namespace alongiYardscapes.Controllers
             var folders = di.GetDirectories();
             foreach(var folder in folders)
             {
-                var gi = new GalleryImage();
-                //FileInfo[] images = folder.GetFiles();
-                //foreach (var image in images) {
-
-                //    var name = image.ToString();
-                //    if(name.ToLower() == "thumb.jpg")
-                //    {
-                //        gi.Thumb = image.DirectoryName;
-                //    }
-                //}
+                var gi = new GalleryImage(); 
                 int startOfFolderNumber = folder.FullName.LastIndexOf("\\") + 1;
                 string folderNumber = folder.FullName.Substring(startOfFolderNumber, 2);               
                 int fCount = folder.GetFiles().Length;
@@ -55,25 +46,7 @@ namespace alongiYardscapes.Controllers
                     gi.ImageAfter = $"/images/Gallery/{folderNumber}/after.jpg";
                 }           
                 gis.Images.Add(gi);
-            }
-         
-            //Array.Sort(fi, (f1, f2) => f1.Name.CompareTo(f2.Name));
-            //var ss = new SlideShow()
-            //{
-            //    Images = new List<string>()
-            //};
-
-            //for (int i = 0; i < fi.Length; i++)
-            //{
-            //    string fileName = "";
-            //    fileName = fi[i].ToString();
-            //    string[] fileNameArray = new string[3];
-            //    char[] splitter = { '.' };
-            //    fileNameArray = fileName.Split(splitter);
-            //    int startOfId = fileName.LastIndexOf("\\") + 1;
-            //    string id = fileName.Substring(startOfId, 2);
-            //    ss.Images.Add($"/images/HomeSlideShow/{id}.{fileNameArray[1]}.jpg");
-            //}
+            }    
 
             return View(gis);
         } 
