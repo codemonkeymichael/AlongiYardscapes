@@ -39,9 +39,21 @@ namespace alongiYardscapes.Controllers
                 //    }
                 //}
                 int startOfFolderNumber = folder.FullName.LastIndexOf("\\") + 1;
-                string folderNumber = folder.FullName.Substring(startOfFolderNumber, 2);
+                string folderNumber = folder.FullName.Substring(startOfFolderNumber, 2);               
+                int fCount = folder.GetFiles().Length;
+                gi.Id = folderNumber;
                 gi.Thumb = $"/images/Gallery/{folderNumber}/thumb.jpg";
-                gi.Image = $"/images/Gallery/{folderNumber}/image.jpg";
+                if (fCount == 2)
+                {
+                    gi.BeforeAndAfter = false;
+                    gi.Image = $"/images/Gallery/{folderNumber}/image.jpg";
+                }
+                else
+                {
+                    gi.BeforeAndAfter = true;
+                    gi.Image = $"/images/Gallery/{folderNumber}/before.jpg";
+                    gi.ImageAfter = $"/images/Gallery/{folderNumber}/after.jpg";
+                }           
                 gis.Images.Add(gi);
             }
          

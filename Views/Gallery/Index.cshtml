@@ -6,33 +6,62 @@
 
 <h1>Gallery</h1>
 <div class="image-viewer">
-    @{int i = 1; }
+    @{bool first = true; }
     @foreach (var img in Model.Images)
     {
-        @if (i == 1)
+        @if (first)
+        {
+            @if (img.BeforeAndAfter)
+            {
+                <div>
+                    <img class="full-image selected" data-imgNum="@img.Id" src="@img.Image" />
+                    <img class="full-image selected" data-imgNum="@img.Id" src="@img.ImageAfter" />
+                </div>
+            }
+            else
+            {
+                <div>
+                    <img class="full-image selected" data-imgNum="@img.Id" src="@img.Image" />
+                </div>
+            }
+        }
+        else
+        {
+            @if (img.BeforeAndAfter)
+            {
+                <div>
+                    <img class="full-image selected" data-imgNum="@img.Id" src="@img.Image" />
+                    <img class="full-image selected" data-imgNum="@img.Id" src="@img.ImageAfter" />
+                </div>
+            }
+            else
+            {
+                <div>
+                    <img class="full-image selected" data-imgNum="@img.Id" src="@img.Image" />
+                </div>
+            }
+        }
+        first = false;
+    }
+</div>
+
+<div class="slider">
+    @{first = true; }
+    @foreach (var img in Model.Images)
+    {
+        @if (first)
         {
             <div>
-                <img class="full-image selected" data-imgNum="@i" src="@img.Image" />
+                <img class="slider-image selected" data-imgNum="@img.Id" src="@img.Thumb" />
             </div>
         }
         else
         {
             <div>
-                <img class="full-image" data-imgNum="@i" src="@img.Image" />
+                <img class="slider-image" data-imgNum="@img.Id" src="@img.Thumb" />
             </div>
         }
-        i++;
-    }
-</div>
-
-<div class="slider">
-    @{ i = 1; }
-    @foreach (var img in Model.Images)
-    {
-        <div>
-            <img class="slider-image" data-imgNum="@i" src="@img.Thumb" />
-        </div>
-        i++;
+        first = false;
     }
 </div>
 

@@ -5,7 +5,10 @@ namespace alongiYardscapes.Models
 {
     public class GalleryImage
     {
+        public string Id { get; set; }
         public string Image { get; set; }
+        public string ImageAfter { get; set; }
+        public bool BeforeAndAfter { get; set; }
         public string Thumb { get; set; }
     }
 
