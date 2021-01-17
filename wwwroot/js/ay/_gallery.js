@@ -1,6 +1,5 @@
 ﻿AY.Gallery = {
-    Init: function () {
-        $(".beforeAndAfter").twentytwenty();
+    Init: function () {    
 
         $(".slider-image").on("click", function () {
             AY.Gallery.changeImage($(this))
@@ -44,6 +43,7 @@
         $(".image-wrapper").removeClass("selected");
         var imgNum = element.attr("data-imgNum");
         $(".image-wrapper[data-imgNum='" + imgNum + "']").addClass("selected");
+        $(".beforeAndAfter").twentytwenty();
         console.log("Hello " + imgNum);
     }
 }
