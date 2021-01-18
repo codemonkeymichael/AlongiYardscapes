@@ -6,51 +6,58 @@
 // Small devices (landscape phones, 576px and up)
 //@media (min-width: 576px) {
 .image-viewer {
-    padding: 10px;
     height: 60vh;
 
     .portrait {
-        margin: auto;
-        width: 85%;
+        margin: 0;
+        max-width: 100%;
+        max-height: 59vh;
     }
 
     .landscape {
-        margin: auto;
+        margin: 0 15%;
         width: 100%;
+        max-height: 60vh;
     }
 
     .image-wrapper {
         display: none;
 
+
         .full-image {
+            //max-height: 57vh;
         }
     }
 
     .selected {
         display: block;
+        overflow: hidden;
     }
 }
 
 // Medium devices (tablets, 768px and up)
 @media (min-width: 768px) {
     .image-viewer {
-        padding: 10px;
+        padding: 5px;
         height: 70vh;
 
         .portrait {
             margin: auto;
-            width: 95%;
+            max-width: 100%;
+            max-height: 68vh;
         }
 
         .landscape {
             margin: auto;
-            width: 100%;
+            max-width: 100%;
+            max-height: 65vh;
         }
 
         .image-wrapper {
             display: none;
 
             .full-image {
+                max-height: 65vh;
             }
         }
 
@@ -63,23 +70,28 @@
 // Large devices (desktops, 992px and up)
 @media (min-width: 992px) {
     .image-viewer {
-        padding: 10px;
+        padding: 5px;
         height: 70vh;
 
         .portrait {
-            margin: auto;
-            width: 70%;
+            margin: 0 15%;
+            max-width: 100%;
+            max-height: 68vh;
         }
 
         .landscape {
             margin: auto;
-            width: 100%;
+            max-width: 100%;
+            max-height: 65vh;
         }
 
         .image-wrapper {
             display: none;
 
             .full-image {
+                max-height: 70vh;
+                margin: auto;
+                display: block;
             }
         }
 
@@ -97,18 +109,21 @@
 
         .portrait {
             margin: auto;
-            width: 60%;
+            max-width: 60%;
+            max-height: 65vh;
         }
 
         .landscape {
             margin: auto;
-            width: 100%;
+            max-width: 100%;
+            max-height: 65vh;
         }
 
         .image-wrapper {
             display: none;
 
             .full-image {
+                max-height: 65vh;
             }
         }
 
@@ -116,7 +131,6 @@
             display: block;
         }
     }
-
 }
 
 
@@ -135,13 +149,13 @@
     .slick-dots li button:before {
         color: #fff;
     }
- 
+
     @media (min-width: 768px) {
     }
-   
+
     @media (min-width: 992px) {
     }
- 
+
     @media (min-width: 1200px) {
         height: 10vh;
 
