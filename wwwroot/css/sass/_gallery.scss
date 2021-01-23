@@ -2,7 +2,6 @@
     outline: none;
 }
 
-
 // Small devices (landscape phones, 576px and up)
 //@media (min-width: 576px) {
 .image-viewer {
@@ -136,6 +135,7 @@
 
 .slider {
     height: 12vh;
+    margin-bottom: 15px;
 
     .slider-image {
         padding: 5px;
