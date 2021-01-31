@@ -1,47 +1,40 @@
 ﻿#logo {
-    width: 65px;
-    height: 65px;
+    height: 40px;
     position: relative;
-    top: 5px;
-    box-shadow: 4px 2px 9px #000000;
 }
 
-@media (min-width: 575px) {
-    #logo {
-        width: 65px;
-        height: 65px;
-        position: relative;
-        top: 5px;
-        box-shadow: 4px 2px 9px #000000;
-    }
-}
-@media (min-width: 800px) {
-    #logo {
-        width: 65px;
-        height: 65px;
-        position: relative;
-        top: 5px;
-        box-shadow: 4px 2px 9px #000000;
-    }
+#logo-shadow {
+    position: absolute;
+    top: 7px;
+    height: 45px;
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 576px) {
+
     #logo {
-        width: 65px;
-        height: 65px;
+        height: 45px;
         position: relative;
-        top: 5px;
-        box-shadow: 4px 2px 9px #000000;
+    }
+
+    #logo-shadow {
+        position: absolute;
+        top: 7px;
+        height: 51px;
     }
 }
 
-@media (min-width: 1800px) {
+@media (min-width: 992px) {
     #logo {
-        width: 65px;
         height: 65px;
         position: relative;
-        top: 5px;
-        box-shadow: 4px 2px 9px #000000;
+        top: 10px;
     }
 
+    #logo-shadow {
+        position: absolute;
+        top: 15px;
+        height: 74px;
+    }
 }
+
+
