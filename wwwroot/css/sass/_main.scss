@@ -1,19 +1,23 @@
 ﻿body {
+    line-height: 1.45rem;
+    font-family: 'Poppins', sans-serif;
+
 
     .main {
 
         main {
             position: relative;
-            margin: 0;
+            margin: 20px 0;
 
 
             h1 {
-                font-size: 1rem;
+                font-size: 1.25rem;
                 margin-bottom: 0.3rem;
+                font-weight: bold;
             }
 
             h2 {
-                font-size: 0.9rem;
+                font-size: 1.0rem;
             }
 
             h3 {
@@ -24,10 +28,18 @@
                 text-align: center;
             }
 
+            ul {
+                li {
+                    margin-bottom: 7px;
+                    color: #6e6e6e;
+                }
+            }
+        }
 
-            @media (min-width: 768px) {
+        @media (min-width: 768px) {
 
-
+            main {
+                margin: 40px 0;
 
                 h1 {
                     font-size: 1.5rem;
@@ -35,7 +47,7 @@
                 }
 
                 h2 {
-                    font-size: 0.9rem;
+                    font-size: 1.0rem;
                 }
 
                 h3 {
@@ -46,11 +58,14 @@
                     text-align: center;
                 }
             }
+        }
 
-            @media (min-width: 992px) {
+        @media (min-width: 992px) {
+
+            main {
 
                 h1 {
-                    font-size: 2rem;
+                    font-size: 2.25rem;
                     margin-bottom: 0.5rem;
                 }
 
@@ -66,8 +81,11 @@
                     text-align: center;
                 }
             }
+        }
 
-            @media (min-width: 1200px) {
+        @media (min-width: 1200px) {
+
+            main {
 
                 h1 {
                     font-size: 2.5rem;
