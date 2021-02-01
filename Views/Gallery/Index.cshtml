@@ -5,8 +5,18 @@
 }
 
 <h1>Gallery</h1>
+<div class="slider">
+    @{bool first = true; }   
+    @foreach (var img in Model.Images)
+    {
+        <div>
+            <img class="slider-image @(first ? "selected" : "")" data-imgNum="@img.Id" src="@img.Thumb" />
+        </div>
+        first = false;
+    }
+</div>
 <div class="image-viewer">
-    @{bool first = true; }
+    @{first = true; }
     @foreach (var img in Model.Images)
     {
         @if (img.BeforeAndAfter)
@@ -28,16 +38,7 @@
     }
 </div>
 
-<div class="slider">
-    @{first = true; }
-    @foreach (var img in Model.Images)
-    {
-        <div>
-            <img class="slider-image @(first ? "selected" : "")" data-imgNum="@img.Id" src="@img.Thumb" />
-        </div>
-        first = false;
-    }
-</div>
+
 
 <style>
     body {

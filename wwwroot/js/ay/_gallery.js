@@ -30,8 +30,7 @@
                     breakpoint: 480,
                     settings: {
                         slidesToShow: 3,
-                        slidesToScroll: 1,
-                        arrows: false
+                        slidesToScroll: 1                   
                     }
                 }             
             ]
