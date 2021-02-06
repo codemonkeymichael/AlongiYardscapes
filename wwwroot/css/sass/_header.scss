@@ -8,7 +8,21 @@
 
             .contact-img {
                 height: 18px;
-                margin: 23px 40% 0 40%;
+                margin: 23px 0 0 15%;
+            }
+
+            @media (min-width: 500px) {
+                .contact-img {
+                    height: 18px;
+                    margin: 23px 30% 0 40%;
+                }
+            }
+
+            @media (min-width: 900px) {
+                .contact-img {
+                    height: 18px;
+                    margin: 23px 30% 0 40%;
+                }
             }
         }
 
