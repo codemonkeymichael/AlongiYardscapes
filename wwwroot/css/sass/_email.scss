@@ -1,1 +1,19 @@
-﻿
+﻿form {
+    label {
+        display: block;
+        margin-bottom: 0.1rem;
+    }
+
+    input, textarea {
+        display: block;
+        width: 100%;
+        margin-bottom: 0.1rem;
+        margin-left: 0.5rem;
+    }
+
+    span {
+        display: block;
+        font-size: 12px;
+        margin-left: 0.5rem;
+    }
+}

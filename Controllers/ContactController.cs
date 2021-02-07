@@ -97,6 +97,10 @@ namespace alongiYardscapes.Controllers
                     }
                     return View("Error");
                 }
+                else
+                {
+                    email.emailSent = false;
+                }
 
             }
             catch (Exception ex)
@@ -104,7 +108,7 @@ namespace alongiYardscapes.Controllers
 
             }
          
-            return View();
+            return View(email);
         } 
     }
 }
