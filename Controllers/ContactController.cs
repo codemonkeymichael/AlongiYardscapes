@@ -60,12 +60,14 @@ namespace alongiYardscapes.Controllers
                     var client = new RestClient("https://api.sendgrid.com/v3/mail/send");
                     client.Timeout = -1;
 
-                    //This email goes to Sandy
-                    var sendEmail = "sandy@sandyplumb.com";
-                    var sendName = "Sandy Plumb";
-                    var requestToSandy = new RestRequest(Method.POST);
-                    requestToSandy.AddHeader("Authorization", "Bearer " + apiKey);
-                    requestToSandy.AddHeader("Content-Type", "application/json");
+                    //This email goes to Sam
+                    //var sendEmail = "sam@alongiyardscapes.com";
+                    //var sendName = "Sam Alongi";
+                    var sendEmail = "mike@michaelstrange.net";
+                    var sendName = "Sam Alongi";
+                    var requestToSam = new RestRequest(Method.POST);
+                    requestToSam.AddHeader("Authorization", "Bearer " + apiKey);
+                    requestToSam.AddHeader("Content-Type", "application/json");
                     var jsonBodyOrder = "{\"personalizations\":" +
                           "[{\"to\": [{ \"email\": \"" + sendEmail + "\" ,\"name\": \"" + sendName + "\"}], " +
                           "\"subject\": \"" + email.Subject + "\"}], " +
@@ -73,8 +75,8 @@ namespace alongiYardscapes.Controllers
                           "\"reply_to\": {\"email\": \"" + email.From + "\" , \"name\": \"" + email.Name + "\"}," +
                           "\"content\": [{\"type\": \"text/html\",\"value\": \"" + message + "\"}]}";
 
-                    requestToSandy.AddParameter("application/json", jsonBodyOrder, ParameterType.RequestBody);
-                    IRestResponse responseOrder = client.Execute(requestToSandy);
+                    requestToSam.AddParameter("application/json", jsonBodyOrder, ParameterType.RequestBody);
+                    IRestResponse responseOrder = client.Execute(requestToSam);
                     if (responseOrder.IsSuccessful)
                     {
                         //This email goes to customer. Didn't need reply_to here just did it same way for consistency
@@ -83,10 +85,10 @@ namespace alongiYardscapes.Controllers
                         requestToDude.AddHeader("Content-Type", "application/json");
                         var jsonBodyThanks = "{\"personalizations\":" +
                             "[{\"to\": [{ \"email\": \"" + email.From + "\",\"name\": \"" + email.Name + "\"}], " +
-                            "\"subject\": \"Sandy Plumb: Voicing Your Vision - " + email.Subject + "\"}], " +
+                            "\"subject\": \"Sam Alongi: Alongi Yardscapes - " + email.Subject + "\"}], " +
                             "\"from\": {\"email\": \"" + sendEmail + "\",  \"name\": \"" + sendName + "\" }, " +
                             "\"reply_to\": {\"email\": \"" + sendEmail + "\",  \"name\": \"" + sendName + "\"}," +
-                            "\"content\": [{\"type\": \"text/html\",\"value\": \"Thank you for contacting me. I'll get back to you as soon as I can.<br /> - Sandy Plumb <br /><br />Your Message:<br />" + message + " \"}]}";
+                            "\"content\": [{\"type\": \"text/html\",\"value\": \"Thank you for contacting me. I'll get back to you as soon as I can.<br /> - Sam Alongi <br /><br />Your Message:<br />" + message + " \"}]}";
 
                         requestToDude.AddParameter("application/json", jsonBodyThanks, ParameterType.RequestBody);
                         IRestResponse responseThanks = client.Execute(requestToDude);
