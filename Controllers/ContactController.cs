@@ -10,6 +10,8 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
+using Recaptcha.Web.Mvc;
+using Recaptcha.Web;
 
 namespace alongiYardscapes.Controllers
 {
@@ -43,6 +45,19 @@ namespace alongiYardscapes.Controllers
                 if (ModelState.IsValid)
                 {
 
+                    RecaptchaVerificationHelper recaptchaHelper = this.GetRecaptchaVerificationHelper();
+                    if (String.IsNullOrEmpty(recaptchaHelper.Response))
+                    {
+                        ModelState.AddModelError("CaptchaValidation", "You must check the Captcha.");
+                        return View(email);
+                    }
+                    //RecaptchaVerificationResult recaptchaResult = recaptchaHelper.VerifyRecaptchaResponse();
+                    //if (recaptchaResult != RecaptchaVerificationResult.Success)
+                    //{
+                    //    ModelState.AddModelError("", "Incorrect captcha answer.");
+                    //}
+
+
                     var apiKey = _config.SendGridApiKey;
 
                     //This is the easy way but has no replyTo field, had to do it the hard way
@@ -61,10 +76,10 @@ namespace alongiYardscapes.Controllers
                     client.Timeout = -1;
 
                     //This email goes to Sam
-                    //var sendEmail = "sam@alongiyardscapes.com";
-                    //var sendName = "Sam Alongi";
-                    var sendEmail = "mike@michaelstrange.net";
+                    var sendEmail = "sam@alongiyardscapes.com";
                     var sendName = "Sam Alongi";
+                    //var sendEmail = "mike@michaelstrange.net";
+                    //var sendName = "Sam Alongi";
                     var requestToSam = new RestRequest(Method.POST);
                     requestToSam.AddHeader("Authorization", "Bearer " + apiKey);
                     requestToSam.AddHeader("Content-Type", "application/json");
