@@ -1,6 +1,8 @@
 ﻿using alongiYardscapes.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
+using RestSharp;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -14,13 +16,27 @@ namespace alongiYardscapes.Controllers
     public class ContactController : Controller
     {
         private readonly ILogger<AboutController> _logger;
+        private readonly Config _config;
 
-        public ContactController(ILogger<AboutController> logger)
+        public ContactController(ILogger<AboutController> logger, IOptions<Config> config)
         {
             _logger = logger;
+            _config = config.Value;
         }
 
-        public IActionResult Index()
+        public ActionResult Index(string thankYou)
+        {
+            var model = new Email();
+            bool flag;
+            Boolean.TryParse(thankYou, out flag);
+            model.emailSent = flag;
+
+            return View(model);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Index(Email email)
         {
             try
             {
@@ -40,7 +56,7 @@ namespace alongiYardscapes.Controllers
                     //var msg = MailHelper.CreateSingleEmail(from, to, subject, plainTextContent, htmlContent);
                     //var response = await client.SendEmailAsync(msg).ConfigureAwait(false);
 
-                    var message = HttpUtility.HtmlEncode(pageVM.email.Message).Replace("\n", "<br/>").Replace("\r", "").Replace("\t", "");
+                    var message = HttpUtility.HtmlEncode(email.Message).Replace("\n", "<br/>").Replace("\r", "").Replace("\t", "");
                     var client = new RestClient("https://api.sendgrid.com/v3/mail/send");
                     client.Timeout = -1;
 
@@ -52,9 +68,9 @@ namespace alongiYardscapes.Controllers
                     requestToSandy.AddHeader("Content-Type", "application/json");
                     var jsonBodyOrder = "{\"personalizations\":" +
                           "[{\"to\": [{ \"email\": \"" + sendEmail + "\" ,\"name\": \"" + sendName + "\"}], " +
-                          "\"subject\": \"" + pageVM.email.Subject + "\"}], " +
+                          "\"subject\": \"" + email.Subject + "\"}], " +
                           "\"from\": {\"email\": \"" + sendEmail + "\",  \"name\": \"" + sendName + "\" }, " +
-                          "\"reply_to\": {\"email\": \"" + pageVM.email.From + "\" , \"name\": \"" + pageVM.email.Name + "\"}," +
+                          "\"reply_to\": {\"email\": \"" + email.From + "\" , \"name\": \"" + email.Name + "\"}," +
                           "\"content\": [{\"type\": \"text/html\",\"value\": \"" + message + "\"}]}";
 
                     requestToSandy.AddParameter("application/json", jsonBodyOrder, ParameterType.RequestBody);
@@ -66,8 +82,8 @@ namespace alongiYardscapes.Controllers
                         requestToDude.AddHeader("Authorization", "Bearer " + apiKey);
                         requestToDude.AddHeader("Content-Type", "application/json");
                         var jsonBodyThanks = "{\"personalizations\":" +
-                            "[{\"to\": [{ \"email\": \"" + pageVM.email.From + "\",\"name\": \"" + pageVM.email.Name + "\"}], " +
-                            "\"subject\": \"Sandy Plumb: Voicing Your Vision - " + pageVM.email.Subject + "\"}], " +
+                            "[{\"to\": [{ \"email\": \"" + email.From + "\",\"name\": \"" + email.Name + "\"}], " +
+                            "\"subject\": \"Sandy Plumb: Voicing Your Vision - " + email.Subject + "\"}], " +
                             "\"from\": {\"email\": \"" + sendEmail + "\",  \"name\": \"" + sendName + "\" }, " +
                             "\"reply_to\": {\"email\": \"" + sendEmail + "\",  \"name\": \"" + sendName + "\"}," +
                             "\"content\": [{\"type\": \"text/html\",\"value\": \"Thank you for contacting me. I'll get back to you as soon as I can.<br /> - Sandy Plumb <br /><br />Your Message:<br />" + message + " \"}]}";
@@ -76,7 +92,7 @@ namespace alongiYardscapes.Controllers
                         IRestResponse responseThanks = client.Execute(requestToDude);
                         if (responseThanks.IsSuccessful)
                         {
-                            return RedirectToAction("Index", new { ty = true });
+                            return RedirectToAction("Index", new { thankYou = true });
                         }
                     }
                     return View("Error");
@@ -87,8 +103,8 @@ namespace alongiYardscapes.Controllers
             {
 
             }
-            var pvm = populateViewModel().Result;
-            return View(pvm);
+         
+            return View();
         } 
     }
 }

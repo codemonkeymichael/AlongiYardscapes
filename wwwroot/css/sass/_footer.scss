@@ -11,20 +11,48 @@
         width: 100%;
     }
 
+    #footer-spacer {
+        background-color: #124a2f;
+        height: 75px;
+    }
+
+
     @media (min-height: 650px) {
 
         footer {
             padding-top: 15px;
             padding-bottom: 25px;
         }
-    }
 
+        #footer-spacer {
+            height: 100px;
+        }
+    }
 
     @media (min-height: 800px) {
 
         footer {
             padding-top: 25px;
             padding-bottom: 40px;
+        }
+
+        #footer-spacer {
+            margin-top: 75px;
+            height: 125px;
+        }
+    }
+
+
+    @media (min-height: 900px) {
+
+        footer {
+            padding-top: 25px;
+            padding-bottom: 40px;
+        }
+
+        #footer-spacer {
+            margin-top: 125px;
+            height: 125px;
         }
     }
 
@@ -33,6 +61,11 @@
         footer {
             padding-top: 30px;
             padding-bottom: 60px;
+        }
+
+        #footer-spacer {
+            background-color: transparent;
+            height: 150px;
         }
     }
 }
