@@ -6,20 +6,39 @@
             background-color: #124a2f;
             height: 65px;
 
-            .contact-img {
+            .contact-img-left {
                 height: 18px;
                 margin: 23px 0 0 15%;
             }
 
             @media (min-width: 500px) {
-                .contact-img {
+                .contact-img-left {
                     height: 18px;
                     margin: 23px 30% 0 40%;
                 }
             }
 
             @media (min-width: 900px) {
-                .contact-img {
+                .contact-img-left {
+                    height: 18px;
+                    margin: 23px 15% 0 40%;
+                }
+            }
+
+            .contact-img-right {
+                height: 18px;
+                margin: 23px 0 0 15%;
+            }
+
+            @media (min-width: 500px) {
+                .contact-img-right {
+                    height: 18px;
+                    margin: 23px 30% 0 40%;
+                }
+            }
+
+            @media (min-width: 900px) {
+                .contact-img-right {
                     height: 18px;
                     margin: 23px 30% 0 40%;
                 }
