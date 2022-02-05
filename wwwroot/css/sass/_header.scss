@@ -8,46 +8,48 @@
 
             .contact-img-left {
                 height: 18px;
-                margin: 23px 0 0 15%;
+                margin: 8px 0 0 15%;
             }
 
             @media (min-width: 500px) {
-                .contact-img-left {
-                    height: 18px;
-                    margin: 23px 30% 0 40%;
+                .contact-img-left {                 
+                    margin: 24px 0 0 2%;
                 }
             }
 
             @media (min-width: 900px) {
-                .contact-img-left {
-                    height: 18px;
-                    margin: 23px 15% 0 40%;
+                .contact-img-left {         
+                    margin: 24px 0 0 15%;
+                }
+            }
+
+            @media (min-width: 1500px) {
+                .contact-img-left {            
+                    margin: 24px 0 0 35%;
                 }
             }
 
             .contact-img-right {
                 height: 18px;
-                margin: 23px 0 0 15%;
+                margin: 13px 0 0 15%;
             }
 
             @media (min-width: 500px) {
-                .contact-img-right {
-                    height: 18px;
-                    margin: 23px 30% 0 40%;
+                .contact-img-right {          
+                    margin: 24px 0 0 4%;
                 }
             }
 
             @media (min-width: 900px) {
-                .contact-img-right {
-                    height: 18px;
-                    margin: 23px 30% 0 40%;
+                .contact-img-right {            
+                    margin: 24px 0 0 15%;
                 }
             }
         }
 
         .navbar {
             background-color: #c96722;
-            box-shadow: inset 0px 20px 25px 0px #00000061;
+            box-shadow: #00000061 0px 20px 25px 0px inset;
 
             div {
                 padding-bottom: 0;

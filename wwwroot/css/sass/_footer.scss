@@ -9,50 +9,32 @@
         position: fixed;
         bottom: 0;
         width: 100%;
+        border-color: #124a2f;
+        border-width: 1vh 0 0 0;
+        border-style: solid;
     }
-
-    #footer-spacer {
-        background-color: #124a2f;
-        height: 75px;
-    }
-
 
     @media (min-height: 650px) {
-
         footer {
             padding-top: 15px;
             padding-bottom: 25px;
-        }
-
-        #footer-spacer {
-            height: 100px;
+            border-width: 2vh 0 0 0;
         }
     }
 
     @media (min-height: 800px) {
-
         footer {
             padding-top: 25px;
             padding-bottom: 40px;
-        }
-
-        #footer-spacer {
-            margin-top: 75px;
-            height: 125px;
+            border-width: 5vh 0 0 0;
         }
     }
 
-
     @media (min-height: 900px) {
-
         footer {
             padding-top: 25px;
             padding-bottom: 40px;
-        }
-
-        #footer-spacer {
-            margin-top: 125px;
-            height: 125px;
+            border-width: 10vh 0 0 0;
         }
     }
 
@@ -61,11 +43,7 @@
         footer {
             padding-top: 30px;
             padding-bottom: 60px;
-        }
-
-        #footer-spacer {
-            background-color: transparent;
-            height: 150px;
+            border-width: 15vh 0 0 0;
         }
     }
 }
