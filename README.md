@@ -5,6 +5,6 @@ Colors:
 Primary - #c96722
 Secondary - #124a2f
 
-You will find the logo in various formats in the 
+You will find the logo in various formats in the wwwroot/images/Logo/ folder above.
 
  
