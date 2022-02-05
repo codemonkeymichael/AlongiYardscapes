@@ -8,20 +8,19 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace alongiYardscapes.Controllers
+namespace alongiYardscapes.Controllers;
+
+public class ServicesController : Controller
 {
-    public class ServicesController : Controller
+    private readonly ILogger<ServicesController> _logger;
+
+    public ServicesController(ILogger<ServicesController> logger)
     {
-        private readonly ILogger<ServicesController> _logger;
+        _logger = logger;
+    }
 
-        public ServicesController(ILogger<ServicesController> logger)
-        {
-            _logger = logger;
-        }
-
-        public IActionResult Index()
-        {           
-            return View();
-        } 
+    public IActionResult Index()
+    {
+        return View();
     }
 }
